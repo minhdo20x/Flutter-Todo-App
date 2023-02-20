@@ -9,12 +9,14 @@ class TaskTile extends StatelessWidget {
 // class _TaskTileState extends State<TaskTile> {
   final bool? isChecked;
   final String? taskTitle;
-  final Function(bool?) checkboxCallbacks;
+  final Function(bool?) checkboxCallback;
+  final void Function() longPressCallback;
 
   const TaskTile(
       {required this.isChecked,
       required this.taskTitle,
-      required this.checkboxCallbacks});
+      required this.checkboxCallback,
+      required this.longPressCallback});
 
   // void checkboxCallBack(bool? checkBoxState) {
   //   setState(() {
@@ -35,6 +37,7 @@ class TaskTile extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(10.0)),
       ),
       child: ListTile(
+        onLongPress: longPressCallback,
         dense: true,
         title: Text(
           taskTitle!,
@@ -47,7 +50,7 @@ class TaskTile extends StatelessWidget {
         trailing: Checkbox(
           activeColor: Colors.green,
           value: isChecked,
-          onChanged: checkboxCallbacks,
+          onChanged: checkboxCallback,
         ),
       ),
     );

@@ -3,11 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:to_do_app/constants/colors.dart';
 import 'package:to_do_app/widgets/task_tile.dart';
 import 'package:to_do_app/widgets/tasks_list.dart';
-import 'add_task_screen.dart';
+import 'package:to_do_app/models/task.dart';
+import 'package:to_do_app/screens/add_task_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:to_do_app/models/task_data.dart';
 
-class TasksScreen extends StatelessWidget {
-  const TasksScreen({super.key});
+// class TasksScreen extends StatefulWidget {
+//   const TasksScreen({super.key});
 
+//   @override
+//   State<TasksScreen> createState() => _TasksScreenState();
+// }
+
+// class _TasksScreenState extends State<TasksScreen> {
+class TaskScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,10 +24,17 @@ class TasksScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         foregroundColor: tdPink,
         backgroundColor: tdlightPink,
-        onPressed: () {
-          showModalBottomSheet(context: context, builder: buildBottomSheet);
-        },
         child: const Icon(Icons.add),
+        onPressed: () {
+          showModalBottomSheet(
+              context: context,
+              builder: (context) => SingleChildScrollView(
+                      child: Container(
+                    padding: EdgeInsets.only(
+                        bottom: MediaQuery.of(context).viewInsets.bottom),
+                    child: AddTaskScreen(),
+                  )));
+        },
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,11 +64,11 @@ class TasksScreen extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                const Text(
-                  '12 Tasks',
-                  style: TextStyle(
+                Text(
+                  '${Provider.of<TaskData>(context).tasks.length} Tasks',
+                  style: const TextStyle(
                     color: tdBlack,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w600,
                     fontSize: 18.0,
                   ),
                 ),
