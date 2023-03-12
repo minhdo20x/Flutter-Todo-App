@@ -6,7 +6,7 @@ import 'package:to_do_app/widgets/tasks_list.dart';
 import 'package:to_do_app/models/task.dart';
 import 'package:to_do_app/screens/add_task_screen.dart';
 import 'package:provider/provider.dart';
-import 'package:to_do_app/models/task_data.dart';
+import 'package:to_do_app/controllers/task_controller.dart';
 
 // class TasksScreen extends StatefulWidget {
 //   const TasksScreen({super.key});
@@ -27,13 +27,15 @@ class TaskScreen extends StatelessWidget {
         child: const Icon(Icons.add),
         onPressed: () {
           showModalBottomSheet(
-              context: context,
-              builder: (context) => SingleChildScrollView(
-                      child: Container(
-                    padding: EdgeInsets.only(
-                        bottom: MediaQuery.of(context).viewInsets.bottom),
-                    child: AddTaskScreen(),
-                  )));
+            context: context,
+            builder: (context) => SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).viewInsets.bottom),
+                child: AddTaskScreen(),
+              ),
+            ),
+          );
         },
       ),
       body: Column(
@@ -65,7 +67,7 @@ class TaskScreen extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  '${Provider.of<TaskData>(context).tasks.length} Tasks',
+                  '${Provider.of<TaskController>(context).tasks.length} Tasks',
                   style: const TextStyle(
                     color: tdBlack,
                     fontWeight: FontWeight.w600,

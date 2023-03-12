@@ -2,27 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:to_do_app/constants/colors.dart';
 
 class TaskTile extends StatelessWidget {
-//   @override
-//   State<TaskTile> createState() => _TaskTileState();
-// }
-
-// class _TaskTileState extends State<TaskTile> {
   final bool? isChecked;
   final String? taskTitle;
   final Function(bool?) checkboxCallback;
-  final void Function() longPressCallback;
+  final Function() longPressCallback;
 
   const TaskTile(
       {required this.isChecked,
       required this.taskTitle,
       required this.checkboxCallback,
       required this.longPressCallback});
-
-  // void checkboxCallBack(bool? checkBoxState) {
-  //   setState(() {
-  //     isChecked = checkBoxState!;
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {

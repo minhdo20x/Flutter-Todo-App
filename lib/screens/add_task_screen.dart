@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/constants/colors.dart';
 import 'package:provider/provider.dart';
-import 'package:to_do_app/models/task_data.dart';
+import 'package:to_do_app/controllers/task_controller.dart';
 import 'package:to_do_app/models/task.dart';
 
 class AddTaskScreen extends StatelessWidget {
@@ -60,8 +60,7 @@ class AddTaskScreen extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                Provider.of<TaskData>(context, listen: false)
-                    .addTask(newTaskTitle!);
+                Provider.of<TaskController>(context, listen: false).addTask(newTaskTitle!);
                 Navigator.pop(context);
               },
               child: const Text(

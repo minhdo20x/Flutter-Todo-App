@@ -1,12 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'dart:collection';
-import 'task.dart';
+import '../models/task.dart';
 
-class TaskData extends ChangeNotifier {
-  List<Task> _tasks = [
-    Task(name: 'Buy milk'),
-    Task(name: 'Buy eggs'),
-    Task(name: 'Buy bread'),
+class TaskController extends ChangeNotifier {
+  final List<Task> _tasks = [
+    Task(name: 'Hello'),
   ];
 
   UnmodifiableListView<Task> get tasks {
