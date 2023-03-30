@@ -74,18 +74,3 @@ class AddTaskScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-
-// Widget AddTaskScreen(BuildContext context) {
-  
-  // final Function addTaskCallback;
-
-  // AddTaskScreen(this.addTaskCallback);
-//   String? newTaskTitle;
-
-//   //double HeightScreen = MediaQuery.of(context).size.height;
-//   
-//    
-// }
