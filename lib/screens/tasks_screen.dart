@@ -8,14 +8,6 @@ import 'package:to_do_app/screens/add_task_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do_app/controllers/task_controller.dart';
 
-// class TasksScreen extends StatefulWidget {
-//   const TasksScreen({super.key});
-
-//   @override
-//   State<TasksScreen> createState() => _TasksScreenState();
-// }
-
-// class _TasksScreenState extends State<TasksScreen> {
 class TaskScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
